@@ -1,0 +1,26 @@
+<h1 class="my-5" style="text-align: center;">URL-SHORTNER</h1>
+    <form action="/shorturls" method="post" class="my-4 form-inline">
+        <label for="fullUrl"class="sr-only">URL</label>
+        <input type="url" name="fullUrl" id="fullUrl" placeholder="Enter Complete Url" required class="form-control mr-3 col">
+        <button class="btn btn-success" type="submit">Shrink</button>
+    </form>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Full Url</th>
+                <th scope="col">Short Url</th>
+                <th scope="col">Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% urls.forEach((url)=>{ %>
+                <tr>
+                    <td><a href="<%= url.fullUrl %>"><%= url.fullUrl %>/</a></td>
+                    <td><a href="<%= url.shortUrl %>"><%= url.shortUrl %></a></td>
+                    <td><%= url.clicks %></td>
+                </tr>
+
+            <% }) %>
+        </tbody>
+    </table>
